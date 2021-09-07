@@ -1,0 +1,53 @@
+.wrapper{ 
+	width: 99%;
+	display: flex;
+		font-size:15pt;
+		height:100%;
+	}
+
+.side_bar{
+	width: 19%;
+	background: white;
+	float: left;
+	color:black;
+}
+
+.side_slide{
+	height:100%;
+	float: left;
+	overflow:hidden;
+}
+
+
+.side_slide img{
+width:80%;
+display:none;
+position:absolute;
+}
+
+
+.show_achievements{
+width: 100%;
+padding-left:1%;
+	overflow:visible;
+	text-align:left;
+	
+}
+
+.contents_list{
+    width:100%
+	display:block;
+	transition:.5s;
+}
+
+.contents_list:hover{
+	background-color:black;
+	color:white;
+}
+
+.contents_list a:hover{
+	color:white;
+}
+
+	
+

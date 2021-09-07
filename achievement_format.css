@@ -1,0 +1,99 @@
+h4 {
+margin-block-start:20px;
+margin-block-end:10px;
+}
+
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/*------------------------------
+
+ここからアコーディオンのCSS
+
+------------------------------*/
+
+
+/* アコーディオンメニューの大きさ */
+.accordion {
+  width: 100%;
+  position:relative;
+
+}
+  
+/* 質問部分 */
+.click_button {
+  font-size: 40px;
+  color: black;
+  font-weight: 100;
+  position: relative;
+}
+
+.acc_button {
+    width: 40px;/*枠の大きさ*/
+    height: 40px;/*枠の大きさ*/
+    right: 0.1%;
+    top:10px;
+    position: absolute;
+    cursor: pointer;
+/*     border:solid; */
+    border-width: 0.5px;
+    border-color:gray;
+
+  }
+  
+.acc_button hr{
+    display: block;
+    margin: 0;
+    border: none;
+  width: 50%;/*バツ線の長さ*/
+    height: 1px;/*バツ線の太さ*/
+    background: gray;
+    transform-origin:50% 50%;
+    position: absolute;
+    left:0px;
+    top:50%;
+    transform: rotate(45deg);
+    transition: .3s;
+} 
+.acc_button hr:nth-of-type(2){
+          left:35.7%;
+      transform: rotate(-45deg);
+}
+
+
+ .hline{
+     border-bottom: 2px solid black;
+} 
+  
+/* 回答部分は最初非表示 */
+.answer {
+  display: none;/* 非表示にしておく */
+  padding: 0px 0px 0px 0px;
+  font-size: 18px;
+  position: relative;
+}
+
+
+.acc_button.open hr:nth-of-type(1){
+    top:85%;
+    transform: rotate(-45deg);
+}
+
+.acc_button.open hr:nth-of-type(2){
+    top:85%;
+    transform: rotate(45deg);}
+
+.ac_date  {
+	width:100px;
+	vertical-align:top;
+	}
+
+
+tr {
+	vertical-align:top;
+	}
+

@@ -1,0 +1,27 @@
+h4 {
+margin-block-start:20px;
+margin-block-end:10px;
+}
+
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+.ul_format {
+ font-size:20px;
+}
+
+
+.ac_date  {
+	width:350px;
+	vertical-align:top;
+	}
+
+
+tr {
+	vertical-align:top;
+	}
+
