@@ -9,6 +9,7 @@ $(function() {
 
 $(function(){
     $.ajaxSetup({cache:false});
+    $(".achieve_2025").load("achieve/2025.html");
     $(".achieve_2024").load("achieve/2024.html");
     $(".achieve_2023").load("achieve/2023.html");
     $(".achieve_2022").load("achieve/2022.html");
