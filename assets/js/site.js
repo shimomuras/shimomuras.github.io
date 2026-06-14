@@ -239,22 +239,39 @@ async function renderWork(rootId) {
   const root = document.getElementById(rootId);
   if (!root) return;
   const text = await fetchText("data/work.md");
-  const cards = [];
+  const sections = [];   // [{ title, imgs: [] }]
+  let current = null;
   if (text) {
     for (const raw of text.split(/\r?\n/)) {
       const line = raw.trim();
-      if (!line || line.startsWith("#") || !line.includes("|")) continue;
-      const [img, ...cap] = line.split("|").map((p) => p.trim());
+      if (!line) continue;
+      if (line.startsWith("##")) {
+        // 見出し（フォルダのタイトル）
+        current = { title: line.replace(/^#+\s*/, ""), imgs: [] };
+        sections.push(current);
+        continue;
+      }
+      if (line.startsWith("#")) continue;             // コメント行
+      // 「画像パス」または旧形式「画像パス | キャプション」の両方に対応（キャプションは無視）
+      const img = line.split("|")[0].trim();
       if (!img) continue;
-      cards.push(
-        `<figure class="work-card">
-           <img src="${esc(img)}" alt="${esc(cap.join(" "))}" loading="lazy">
-           ${cap.length ? `<figcaption>${fmtInline(cap.join(" | "))}</figcaption>` : ""}
-         </figure>`
-      );
+      if (!current) { current = { title: "", imgs: [] }; sections.push(current); }
+      current.imgs.push(img);
     }
   }
-  root.innerHTML = cards.length
-    ? `<div class="work-grid">${cards.join("")}</div>`
-    : `<p class="empty-note">写真はまだありません。<code>figure/work/</code> に画像を置き、<code>data/work.md</code> に1行ずつ<br><code>figure/work/photo1.jpg | キャプション</code><br>の形式で追加してください。</p>`;
+  const blocks = [];
+  for (const sec of sections) {
+    if (!sec.imgs.length) continue;
+    if (sec.title) blocks.push(`<h2 class="work-title">${esc(sec.title)}</h2>`);
+    blocks.push(
+      `<div class="work-grid">` +
+      sec.imgs.map((img) =>
+        `<figure class="work-card"><img src="${esc(img)}" alt="" loading="lazy"></figure>`
+      ).join("") +
+      `</div>`
+    );
+  }
+  root.innerHTML = blocks.length
+    ? blocks.join("")
+    : `<p class="empty-note">写真はまだありません。<code>data/work.md</code> に<br><code>## 見出し（都市・日付）</code><br>と<code>figure/work/photo1.jpg</code>（画像パス）を追加してください。</p>`;
 }

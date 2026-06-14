@@ -284,6 +284,16 @@ ul.plain { list-style: none; padding: 0; margin: 0; }
 ul.plain li { padding: 6px 0; }
 
 /* ---------- work (photo grid) ---------- */
+.work-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 36px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.work-title:first-child { margin-top: 0; }
 .work-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -300,11 +310,6 @@ ul.plain li { padding: 6px 0; }
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-}
-.work-card figcaption {
-  padding: 10px 12px;
-  font-size: 0.88rem;
-  color: var(--muted);
 }
 .empty-note {
   border: 1px dashed var(--line);
