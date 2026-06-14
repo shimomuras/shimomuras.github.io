@@ -1,71 +1,58 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Suguru Shimomura</title>
-<!-- meta data-->
-<meta name="description" content="This is Suguru Shimomura's HP.">
-<meta name="google-site-verification" content="4t26xh-PkdfPcpYM8xLflNSWOFBuKmMt6CoV5t0Vzbw" />
-<meta name="keywords" content="suguru, shimomura, Suguru, Shimomura, 下村優, 下村" >
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<!-- css style sheet -->
-<link rel='stylesheet' type="text/css" href="style_com.css">
-<link rel='stylesheet' media='screen' href='style_pc.css' >
-<link rel='stylesheet' media='screen' href='hamburger.css' >
-  <!-- javasdcript -->
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-<script src='my_function.js'></script>
-
-<!--
-<link rel='stylesheet' media='screen and (max-width: 999px)' href='style_sp.css' />
--->
+  <meta charset="UTF-8">
+  <title>Suguru Shimomura</title>
+  <meta name="description" content="Suguru Shimomura — Assistant Professor at Osaka University. Optical computing, computational imaging, and photonic information processing.">
+  <meta name="google-site-verification" content="4t26xh-PkdfPcpYM8xLflNSWOFBuKmMt6CoV5t0Vzbw" />
+  <meta name="keywords" content="suguru, shimomura, Suguru, Shimomura, 下村優, 下村">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Sans+JP:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-<header >
-<div  ID='header_link'>
-<a href='index.html'>Suguru Shimomura</a>
-</div>
 
- <div class="nav-wrapper"><!-- ②ナビゲーションメニュー -->
-        <nav class="header-nav">
-          <ul class="nav-list">
-            <li class="nav-item"><a href='information.html'>Information</a></li>
-            <li class="nav-item"><a href='achievements.html'>Achievements</a></li>
-            <li class="nav-item">Travel records</li>
-
-           </ul> 
-        </nav>
-      </div>
-
-<div class='header_button'>
-  <span class="bar bar_top"></span>
-  <span class="bar bar_mid"></span>
-  <span class="bar bar_bottom"></span>
-</div>
+<header class="site">
+  <div class="site-inner">
+    <a class="site-name" href="index.html">Suguru Shimomura</a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="information.html">Information</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="work.html">Work</a>
+    </nav>
+  </div>
 </header>
 
-
 <main>
-<!--  side_bar -->
-<div class='wrapper'>
-	<div class='side_bar'>
-	<a href='information.html'><div class='contents_list'>Information</div></a>
-	<a href='achievements.html'><div class='contents_list'>Achievements</div></a>
-	<div class='contents_list'>Travel record</div>
-</div>
-<div class="side_slide">
-<img src="figure/icon/slide1.jpg" />
-<img src="figure/icon/slide2.jpg" />
+  <section class="hero">
+    <figure class="hero-vis">
+      <canvas id="wavefield" aria-label="Interactive digital wavefront: move the cursor to emit pulses that interfere with the word Photonics rendered as point sources." role="img"></canvas>
+     
+    </figure>
+  </section>
+<br>
+  <h2 class="sec">Latest News</h2>
+  <ul class="news-list" id="news">
+    <li class="loading">Loading…</li>
+  </ul>
 
-</div>
-	</div>
-
-	
-</div>
+  <div class="bottom-links links">
+    <a href="https://scholar.google.co.jp/citations?user=rL0m7IYAAAAJ&hl=ja" target="_blank" rel="noopener">Google Scholar</a>
+    <a href="https://researchmap.jp/suguru.shimomura" target="_blank" rel="noopener">researchmap</a>
+    <a href="https://www.researchgate.net/profile/Suguru-Shimomura" target="_blank" rel="noopener">ResearchGate</a>
+    <a href="https://jp.linkedin.com/in/suguru-shimomura-0294b8180" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
 </main>
 
-<!--  footer -->
-	<div ID="copy_light">Suguru Shimomura, All right reserved.</div>
+<footer class="site">
+  <div class="site-inner">© Suguru Shimomura. All rights reserved.</div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/wavefield.js"></script>
+<script>renderNews("news", 6);</script>
 </body>
 </html>
